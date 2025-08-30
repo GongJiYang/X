@@ -3,11 +3,12 @@ use axum::{
     Router,
 };
 use tokio::net::TcpListener;
+use tracing_subscriber;
 
 #[tokio::main]
 async fn main() {
     // Initialize tracing
-    tracing_subscriber::init();
+    tracing_subscriber::fmt::init();
 
     // Build our application with a route
     let app = Router::new()
